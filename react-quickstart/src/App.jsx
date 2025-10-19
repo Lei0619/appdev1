@@ -25,3 +25,14 @@ export default function App() {
     <h1 style={{ color: 'blue', textAlign: 'center' }}>Styled Heading</h1>
   );
 }
+
+const user = { name: 'Lei', imageUrl: 'https://placekitten.com/200/200' };
+
+export default function App() {
+  return (
+    <>
+      <h1>{user.name}</h1>
+      <img src={user.imageUrl} alt="User avatar" />
+    </>
+  );
+}
