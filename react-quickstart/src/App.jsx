@@ -36,3 +36,13 @@ export default function App() {
     </>
   );
 }
+
+let isLoggedIn = true;
+
+export default function App() {
+  return (
+    <div>
+      {isLoggedIn ? <h2>Welcome back!</h2> : <h2>Please sign in.</h2>}
+    </div>
+  );
+}
