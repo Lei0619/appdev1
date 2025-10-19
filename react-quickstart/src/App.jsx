@@ -46,3 +46,15 @@ export default function App() {
     </div>
   );
 }
+
+const products = ['Apples', 'Bananas', 'Oranges'];
+
+export default function App() {
+  return (
+    <ul>
+      {products.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  );
+}
