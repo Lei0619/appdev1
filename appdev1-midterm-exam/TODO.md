@@ -1,6 +1,0 @@
-- [x] Copy assets from templatemo_567_nomad_force (css, js, images, videos, fonts) to public/assets, overwriting existing files
-- [x] Replace index.html with templatemo_567_nomad_force/index.html, adjusting asset paths to /assets/
-- [x] Remove src/components/EduMeeting.jsx
-- [x] Update src/App.jsx to render nothing (since switching to static HTML)
-- [x] Remove React mounting in index.html if needed, but keep Vite setup
-- [x] Test the application to ensure the new template loads correctly

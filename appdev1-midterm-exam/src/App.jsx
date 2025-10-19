@@ -1,358 +1,706 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import { useState } from 'react';
+import './App.css';
+
 
 function App() {
+  const [toggleModal, setToggleModal] = useState(false);
+
+
+  function handleToggleModal() {
+    setToggleModal(!toggleModal);
+  }
+
+
   return (
-    <div>
-      <Helmet>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;700;900&display=swap" rel="stylesheet" />
-        <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
-        <link href="/assets/css/bootstrap-icons.css" rel="stylesheet" />
-        <link rel="stylesheet" href="/assets/css/magnific-popup.css" />
-        <link href="/assets/css/aos.css" rel="stylesheet" />
-        <link href="/assets/css/templatemo-nomad-force.css" rel="stylesheet" />
-        <script src="/assets/js/jquery.min.js"></script>
-        <script src="/assets/js/bootstrap.bundle.min.js"></script>
-        <script src="/assets/js/jquery.sticky.js"></script>
-        <script src="/assets/js/aos.js"></script>
-        <script src="/assets/js/jquery.magnific-popup.min.js"></script>
-        <script src="/assets/js/magnific-popup-options.js"></script>
-        <script src="/assets/js/scrollspy.min.js"></script>
-        <script src="/assets/js/custom.js"></script>
-      </Helmet>
-
-      <main>
-        <section className="hero" id="hero">
-          <div className="heroText">
-            <h1 className="text-white mt-5 mb-lg-4" data-aos="zoom-in" data-aos-delay="800">
-              Nomad Force
-            </h1>
-            <p className="text-secondary-white-color" data-aos="fade-up" data-aos-delay="1000">
-              create a great video for your <strong className="custom-underline">website</strong>
-            </p>
-          </div>
-          <div className="videoWrapper">
-            <video autoPlay loop muted className="custom-video" poster="/assets/videos/792bd98f3e617786c850493560e11c45.jpg">
-              <source src="/assets/videos/814dc43e870597176cad645798825c03.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div className="overlay"></div>
-        </section>
-
-        <nav className="navbar navbar-expand-lg bg-light shadow-lg">
-          <div className="container">
-            <a className="navbar-brand" href="index.html">
-              <strong>Nomad Force</strong>
-            </a>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav mx-auto">
-                <li className="nav-item active">
-                  <a className="nav-link" href="#hero">Home</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#about">Our Studio</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#portfolio">Portfolio</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#news">News & Events</a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="#contact">Contact Us</a>
-                </li>
-              </ul>
+      <div>
+        {/* ***** Preloader Start ***** */}
+        {/* <div id="js-preloader" className="js-preloader">
+          <div className="preloader-inner">
+            <span className="dot" />
+            <div className="dots">
+              <span />
+              <span />
+              <span />
             </div>
           </div>
-        </nav>
-
-        <section className="section-padding pb-0" id="about">
-          <div className="container mb-5 pb-lg-5">
-            <div className="row">
-              <div className="col-12">
-                <h2 className="mb-3" data-aos="fade-up">Let us create...</h2>
-              </div>
-              <div className="col-lg-6 col-12 mt-3 mb-lg-5">
-                <p className="me-4" data-aos="fade-up" data-aos-delay="300">You may contribute <a rel="nofollow" href="http://paypal.me/templatemo" target="_blank">a small amount</a> via PayPal if <a rel="nofollow" href="https://templatemo.com/tm-567-nomad-force" target="_parent">Nomad Force Template</a> is useful for you. This will absolutely help us to keep creating better CSS templates for you. <br /><br />We provide you 100% free templates on TemplateMo website. Images are provided by FreePik and Unsplash websites.</p>
-              </div>
-              <div className="col-lg-6 col-12 mt-lg-3 mb-lg-5">
-                <p data-aos="fade-up" data-aos-delay="500">This Bootstrap 5 layout is free to use for your business. You are allowed to edit it in any way you like. However, please do not redistribute this template ZIP file for a template download purpose on any other website such as Free CSS collections.</p>
-              </div>
-            </div>
-          </div>
-          <div className="container-fluid">
-            <div className="row">
-              <div className="col-lg-3 col-12 p-0">
-                <img src="/assets/images/elena-rabkina-eVVzwsNhNf4-unsplash.jpg" className="img-fluid about-image" alt="" />
-              </div>
-              <div className="col-lg-3 col-12 bg-dark">
-                <div className="d-flex flex-column flex-wrap justify-content-center h-100 py-5 px-4 pt-lg-4 pb-lg-0">
-                  <h3 className="text-white mb-3" data-aos="fade-up">We're - idealists and strategic thinkers.</h3>
-                  <p className="text-secondary-white-color" data-aos="fade-up">Over six years in the video business</p>
-                  <div className="mt-3 custom-links">
-                    <a href="#news" className="text-white custom-link" data-aos="zoom-in" data-aos-delay="100">Read News & Events</a>
-                    <a href="#contact" className="text-white custom-link" data-aos="zoom-in" data-aos-delay="300">Work with Us</a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-6 col-12 p-0">
-                <section id="myCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel">
-                  <div className="carousel-inner">
-                    <div className="carousel-item active">
-                      <img src="/assets/images/people/studio-shot-beautiful-happy-retired-caucasian-female-with-pixie-hairdo-crossing-arms-her-chest-having-confident-look-smiling-broadly.jpg" className="img-fluid team-image" alt="" />
-                      <div className="team-thumb bg-warning">
-                        <h3 className="text-white mb-0">Susane R.</h3>
-                        <p className="text-secondary-white-color mb-0">Founding Partner</p>
-                      </div>
-                    </div>
-                    <div className="carousel-item">
-                      <img src="/assets/images/people/project-leder-with-disabilities-looking-front-sitting-immobilized-wheelchair-business-office-room.jpg" className="img-fluid team-image" alt="" />
-                      <div className="team-thumb bg-primary">
-                        <h3 className="text-white mb-0">Morgan S.</h3>
-                        <p className="text-secondary-white-color mb-0">CEO & Investor</p>
-                      </div>
-                    </div>
-                    <div className="carousel-item">
-                      <img src="/assets/images/people/asia-business-woman-feeling-happy-smiling-looking-camera-while-relax-home-office.jpg" className="img-fluid team-image" alt="" />
-                      <div className="team-thumb bg-success">
-                        <h3 className="text-white mb-0">Naomi W.</h3>
-                        <p className="text-secondary-white-color mb-0">Art Director</p>
-                      </div>
-                    </div>
-                    <div className="carousel-item">
-                      <img src="/assets/images/people/happy-african-american-professional-manager-smiling-looking-camera-headshot-portrait.jpg" className="img-fluid team-image" alt="" />
-                      <div className="team-thumb bg-info">
-                        <h3 className="text-white mb-0">Robinson H.</h3>
-                        <p className="text-secondary-white-color mb-0">Sales & Marketing</p>
-                      </div>
-                    </div>
-                    <div className="carousel-item">
-                      <img src="/assets/images/people/working-business-lady.jpg" className="img-fluid team-image" alt="" />
-                      <div className="team-thumb bg-danger">
-                        <h3 className="text-white mb-0">Jane M.</h3>
-                        <p className="text-secondary-white-color mb-0">Project Management</p>
-                      </div>
-                    </div>
-                  </div>
-                  <button className="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Previous</span>
-                  </button>
-                  <button className="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span className="visually-hidden">Next</span>
-                  </button>
-                </section>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="section-padding" id="portfolio">
+        </div> */}
+        {/* ***** Preloader End ***** */}
+        {/* ***** Header Area Start ***** */}
+        <header className="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
           <div className="container">
             <div className="row">
               <div className="col-12">
-                <h2 className="mb-5 text-center" data-aos="fade-up">Portfolio</h2>
-              </div>
-              <div className="col-lg-6 col-12">
-                <div className="portfolio-thumb mb-5" data-aos="fade-up">
-                  <a href="/assets/images/portfolio/visuals-Y4qzW3AsvqI-unsplash.jpeg" className="image-popup">
-                    <img src="/assets/images/portfolio/visuals-Y4qzW3AsvqI-unsplash.jpeg" className="img-fluid portfolio-image" alt="" />
+                <nav className="main-nav">
+                  {/* ***** Logo Start ***** */}
+                  <a href="index.html" className="logo">
+                    <img src="assets/images/logo.png" alt="Chain App Dev" />
                   </a>
-                  <div className="portfolio-info">
-                    <h4 className="portfolio-title mb-0">Effortless</h4>
-                    <p className="text-danger">Branding</p>
-                  </div>
-                </div>
-                <div className="portfolio-thumb" data-aos="fade-up">
-                  <a href="/assets/images/portfolio/severin-candrian-nn3uIZqmUtE-unsplash.jpeg" className="image-popup">
-                    <img src="/assets/images/portfolio/severin-candrian-nn3uIZqmUtE-unsplash.jpeg" className="img-fluid portfolio-image" alt="" />
+                  {/* ***** Logo End ***** */}
+                  {/* ***** Menu Start ***** */}
+                  <ul className="nav">
+                    <li className="scroll-to-section"><a href="#top" className="active">Home</a></li>
+                    <li className="scroll-to-section"><a href="#services">Services</a></li>
+                    <li className="scroll-to-section"><a href="#about">About</a></li>
+                    <li className="scroll-to-section"><a href="#pricing">Pricing</a></li>
+                    <li className="scroll-to-section"><a href="#newsletter">Newsletter</a></li>
+                    <li><div className="gradient-button"><a id="modal_trigger" href="#modal" onClick={handleToggleModal}><i className="fa fa-sign-in-alt" /> Sign In Now</a></div></li>
+                  </ul>        
+                  <a className="menu-trigger">
+                    <span>Menu</span>
                   </a>
-                  <div className="portfolio-info">
-                    <h4 className="portfolio-title mb-0">Health technology</h4>
-                    <p className="text-success">Art Direction</p>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-6 col-12">
-                <div className="portfolio-thumb mt-5 mt-lg-0 mb-5" data-aos="fade-up">
-                  <a href="/assets/images/portfolio/tyler-nix-Y1drF0Y3Oe0-unsplash.jpeg" className="image-popup">
-                    <img src="/assets/images/portfolio/tyler-nix-Y1drF0Y3Oe0-unsplash.jpeg" className="img-fluid portfolio-image" alt="" />
-                  </a>
-                  <div className="portfolio-info">
-                    <h4 className="portfolio-title mb-0">Maki</h4>
-                    <p className="text-warning">Website</p>
-                  </div>
-                </div>
-                <div className="portfolio-thumb" data-aos="fade-up">
-                  <a href="/assets/images/portfolio/thought-catalog-gv-T-OjLe4c-unsplash.jpeg" className="image-popup">
-                    <img src="/assets/images/portfolio/thought-catalog-gv-T-OjLe4c-unsplash.jpeg" className="img-fluid portfolio-image" alt="" />
-                  </a>
-                  <div className="portfolio-info">
-                    <h4 className="portfolio-title mb-0">The gig economy</h4>
-                    <p className="text-info">Graphic</p>
-                  </div>
-                </div>
+                  {/* ***** Menu End ***** */}
+                </nav>
               </div>
             </div>
           </div>
-        </section>
-
-        <section className="news section-padding" id="news">
+        </header>
+        {/* ***** Header Area End ***** */}
+        <div
+  id="modal"
+  className="popupContainer"
+  style={
+    toggleModal
+      ? {
+          display: "block",
+          position: "fixed",
+          opacity: 1,
+          zIndex: 11000,
+          left: "50%",
+          marginLeft: "-165px",
+          top: 100,
+        }
+      : {
+          display: "none",
+        }
+  }
+>
+          <div className="popupHeader">
+            <span className="header_title">Login</span>
+            <span className="modal_close" onClick={handleToggleModal}><i className="fa fa-times" /></span>
+          </div>
+          <section className="popupBody">
+            {/* Social Login */}
+            <div className="social_login">
+              <div className>
+                <a href="#" className="social_box fb">
+                  <span className="icon"><i className="fab fa-facebook" /></span>
+                  <span className="icon_title">Connect with Facebook</span>
+                </a>
+                <a href="#" className="social_box google">
+                  <span className="icon"><i className="fab fa-google-plus" /></span>
+                  <span className="icon_title">Connect with Google</span>
+                </a>
+              </div>
+              <div className="centeredText">
+                <span>Or use your Email address</span>
+              </div>
+              <div className="action_btns">
+                <div className="one_half"><a href="#" id="login_form" className="btn">Login</a></div>
+                <div className="one_half last"><a href="#" id="register_form" className="btn">Sign up</a></div>
+              </div>
+            </div>
+            {/* Username & Password Login form */}
+            <div className="user_login">
+              <form>
+                <label>Email / Username</label>
+                <input type="text" />
+                <br />
+                <label>Password</label>
+                <input type="password" />
+                <br />
+                <div className="checkbox">
+                  <input id="remember" type="checkbox" />
+                  <label htmlFor="remember">Remember me on this computer</label>
+                </div>
+                <div className="action_btns">
+                  <div className="one_half"><a href="#" className="btn back_btn"><i className="fa fa-angle-double-left" /> Back</a></div>
+                  <div className="one_half last"><a href="#" className="btn btn_red">Login</a></div>
+                </div>
+              </form>
+              <a href="#" className="forgot_password">Forgot password?</a>
+            </div>
+            {/* Register Form */}
+            <div className="user_register">
+              <form>
+                <label>Full Name</label>
+                <input type="text" />
+                <br />
+                <label>Email Address</label>
+                <input type="email" />
+                <br />
+                <label>Password</label>
+                <input type="password" />
+                <br />
+                <div className="checkbox">
+                  <input id="send_updates" type="checkbox" />
+                  <label htmlFor="send_updates">Send me occasional email updates</label>
+                </div>
+                <div className="action_btns">
+                  <div className="one_half"><a href="#" className="btn back_btn"><i className="fa fa-angle-double-left" /> Back</a></div>
+                  <div className="one_half last"><a href="#" className="btn btn_red">Register</a></div>
+                </div>
+              </form>
+            </div>
+          </section>
+        </div>
+        <div className="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
           <div className="container">
             <div className="row">
-              <div className="col-12">
-                <h2 className="mb-5 text-center" data-aos="fade-up">News & Events</h2>
-              </div>
-              <div className="col-lg-6 col-12 mb-5 mb-lg-0">
-                <div className="news-thumb" data-aos="fade-up">
-                  <a href="news-detail.html" className="news-image-hover news-image-hover-warning">
-                    <img src="/assets/images/news/caroline-lm-uqveD8dYPUM-unsplash.jpg" className="img-fluid large-news-image news-image" alt="" />
-                  </a>
-                  <div className="news-category bg-warning text-white">News</div>
-                  <div className="news-text-info">
-                    <h5 className="news-title">
-                      <a href="news-detail.html" className="news-title-link">The rise of the gig economy spells the end for these workers the old system</a>
-                    </h5>
-                    <span className="text-muted">22 hours ago</span>
-                  </div>
-                </div>
-              </div>
-              <div className="col-lg-6 col-12">
-                <div className="news-thumb news-two-column d-flex flex-column flex-lg-row" data-aos="fade-up">
-                  <div className="news-top w-100">
-                    <a href="news-detail.html" className="news-image-hover news-image-hover-primary">
-                      <img src="/assets/images/news/jean-philippe-delberghe-MmanXAs1sKw-unsplash.jpeg" className="img-fluid news-image" alt="" />
-                    </a>
-                    <div className="news-category bg-primary text-white">Events</div>
-                  </div>
-                  <div className="news-bottom w-100">
-                    <div className="news-text-info">
-                      <h5 className="news-title">
-                        <a href="news-detail.html" className="news-title-link">Job Opportunities: Digital, Marketing</a>
-                      </h5>
-                      <div className="d-flex flex-wrap">
-                        <span className="text-muted me-2">
-                          <i className="bi-geo-alt-fill me-1 mb-2 mb-lg-0"></i>
-                          Alaska,
-                        </span>
-                        <span className="text-muted">August 6, 2021</span>
+              <div className="col-lg-12">
+                <div className="row">
+                  <div className="col-lg-6 align-self-center">
+                    <div className="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                      <div className="row">
+                        <div className="col-lg-12">
+                          <h2>Get The Latest App From App Stores</h2>
+                          <p>Chain App Dev is an app landing page HTML5 template based on Bootstrap v5.1.3 CSS layout provided by TemplateMo, a great website to download free CSS templates.</p>
+                        </div>
+                        <div className="col-lg-12">
+                          <div className="white-button first-button scroll-to-section">
+                            <a href="#contact">Free Quote <i className="fab fa-apple" /></a>
+                          </div>
+                          <div className="white-button scroll-to-section">
+                            <a href="#contact">Free Quote <i className="fab fa-google-play" /></a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div className="news-thumb news-two-column d-flex flex-column flex-lg-row" data-aos="fade-up">
-                  <div className="news-top w-100" data-aos="fade-up">
-                    <a href="news-detail.html" className="news-image-hover news-image-hover-success">
-                      <img src="/assets/images/news/maria-stewart-p4tj0g-_aMM-unsplash.jpeg" className="img-fluid news-image" alt="" />
-                    </a>
-                    <div className="news-category bg-success text-white">News</div>
-                  </div>
-                  <div className="news-bottom w-100">
-                    <div className="news-text-info">
-                      <h5 className="news-title">
-                        <a href="news-detail.html" className="news-title-link">What happened to new viral video?</a>
-                      </h5>
-                      <span className="text-muted">6 days ago</span>
+                  <div className="col-lg-6">
+                    <div className="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
+                      <img src="assets/images/slider-dec.png" alt="" />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-
-        <section className=" contact section-padding" id="contact">
+        </div>
+        <div id="services" className="services section">
           <div className="container">
             <div className="row">
-              <div className="col-lg-7 col-12 mx-auto">
-                <h2 className="mb-4 text-center" data-aos="fade-up">Don't be shy, write to us</h2>
-                <form action="#" method="post" className="contact-form" role="form" data-aos="fade-up">
+              <div className="col-lg-8 offset-lg-2">
+                <div className="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
+                  <h4>Amazing <em>Services &amp; Features</em> for you</h4>
+                  <img src="assets/images/heading-line-dec.png" alt="" />
+                  <p>If you need the greatest collection of HTML templates for your business, please visit <a rel="nofollow" href="https://www.toocss.com/" target="_blank">TooCSS</a> Blog. If you need to have a contact form PHP script, go to <a href="https://templatemo.com/contact" target="_parent">our contact page</a> for more information.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-3">
+                <div className="service-item first-service">
+                  <div className="icon" />
+                  <h4>App Maintenance</h4>
+                  <p>You are not allowed to redistribute this template ZIP file on any other website.</p>
+                  <div className="text-button">
+                    <a href="#">Read More <i className="fa fa-arrow-right" /></a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3">
+                <div className="service-item second-service">
+                  <div className="icon" />
+                  <h4>Rocket Speed of App</h4>
+                  <p>You are allowed to use the Chain App Dev HTML template. Feel free to modify or edit this layout.</p>
+                  <div className="text-button">
+                    <a href="#">Read More <i className="fa fa-arrow-right" /></a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3">
+                <div className="service-item third-service">
+                  <div className="icon" />
+                  <h4>Multi Workflow Idea</h4>
+                  <p>If this template is beneficial for your work, please support us <a rel="nofollow" href="https://paypal.me/templatemo" target="_blank">a little via PayPal</a>. Thank you.</p>
+                  <div className="text-button">
+                    <a href="#">Read More <i className="fa fa-arrow-right" /></a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-3">
+                <div className="service-item fourth-service">
+                  <div className="icon" />
+                  <h4>24/7 Help &amp; Support</h4>
+                  <p>Lorem ipsum dolor consectetur adipiscing elit sedder williamsburg photo booth quinoa and fashion axe.</p>
+                  <div className="text-button">
+                    <a href="#">Read More <i className="fa fa-arrow-right" /></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="about" className="about-us section">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-6 align-self-center">
+                <div className="section-heading">
+                  <h4>About <em>What We Do</em> &amp; Who We Are</h4>
+                  <img src="assets/images/heading-line-dec.png" alt="" />
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor incididunt ut labore et dolore magna.</p>
+                </div>
+                <div className="row">
+                  <div className="col-lg-6">
+                    <div className="box-item">
+                      <h4><a href="#">Maintance Problems</a></h4>
+                      <p>Lorem Ipsum Text</p>
+                    </div>
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="box-item">
+                      <h4><a href="#">24/7 Support &amp; Help</a></h4>
+                      <p>Lorem Ipsum Text</p>
+                    </div>
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="box-item">
+                      <h4><a href="#">Fixing Issues About</a></h4>
+                      <p>Lorem Ipsum Text</p>
+                    </div>
+                  </div>
+                  <div className="col-lg-6">
+                    <div className="box-item">
+                      <h4><a href="#">Co. Development</a></h4>
+                      <p>Lorem Ipsum Text</p>
+                    </div>
+                  </div>
+                  <div className="col-lg-12">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor idunte ut labore et dolore adipiscing  magna.</p>
+                    <div className="gradient-button">
+                      <a href="#">Start 14-Day Free Trial</a>
+                    </div>
+                    <span>*No Credit Card Required</span>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-6">
+                <div className="right-image">
+                  <img src="assets/images/about-right-dec.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="clients" className="the-clients">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 offset-lg-2">
+                <div className="section-heading">
+                  <h4>Check What <em>The Clients Say</em> About Our App Dev</h4>
+                  <img src="assets/images/heading-line-dec.png" alt="" />
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor incididunt ut labore et dolore magna.</p>
+                </div>
+              </div>
+              <div className="col-lg-12">
+                <div className="naccs">
+                  <div className="grid">
+                    <div className="row">
+                      <div className="col-lg-7 align-self-center">
+                        <div className="menu">
+                          <div className="first-thumb active">
+                            <div className="thumb">
+                              <div className="row">
+                                <div className="col-lg-4 col-sm-4 col-12">
+                                  <h4>David Martino Co</h4>
+                                  <span className="date">30 November 2021</span>
+                                </div>
+                                <div className="col-lg-4 col-sm-4 d-none d-sm-block">
+                                  <span className="category">Financial Apps</span>
+                                </div>
+                                <div className="col-lg-4 col-sm-4 col-12">
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <span className="rating">4.8</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <div className="thumb">
+                              <div className="row">
+                                <div className="col-lg-4 col-sm-4 col-12">
+                                  <h4>Jake Harris Nyo</h4>
+                                  <span className="date">29 November 2021</span>
+                                </div>
+                                <div className="col-lg-4 col-sm-4 d-none d-sm-block">
+                                  <span className="category">Digital Business</span>
+                                </div>
+                                <div className="col-lg-4 col-sm-4 col-12">
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <span className="rating">4.5</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <div className="thumb">
+                              <div className="row">
+                                <div className="col-lg-4 col-sm-4 col-12">
+                                  <h4>May Catherina</h4>
+                                  <span className="date">27 November 2021</span>
+                                </div>
+                                <div className="col-lg-4 col-sm-4 d-none d-sm-block">
+                                  <span className="category">Business &amp; Economics</span>
+                                </div>
+                                <div className="col-lg-4 col-sm-4 col-12">
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <span className="rating">4.7</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div>
+                            <div className="thumb">
+                              <div className="row">
+                                <div className="col-lg-4 col-sm-4 col-12">
+                                  <h4>Random User</h4>
+                                  <span className="date">24 November 2021</span>
+                                </div>
+                                <div className="col-lg-4 col-sm-4 d-none d-sm-block">
+                                  <span className="category">New App Ecosystem</span>
+                                </div>
+                                <div className="col-lg-4 col-sm-4 col-12">
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <span className="rating">3.9</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div className="last-thumb">
+                            <div className="thumb">
+                              <div className="row">
+                                <div className="col-lg-4 col-sm-4 col-12">
+                                  <h4>Mark Amber Do</h4>
+                                  <span className="date">21 November 2021</span>
+                                </div>
+                                <div className="col-lg-4 col-sm-4 d-none d-sm-block">
+                                  <span className="category">Web Development</span>
+                                </div>
+                                <div className="col-lg-4 col-sm-4 col-12">
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <i className="fa fa-star" />
+                                  <span className="rating">4.3</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-lg-5">
+                        <ul className="nacc">
+                          <li className="active">
+                            <div>
+                              <div className="thumb">
+                                <div className="row">
+                                  <div className="col-lg-12">
+                                    <div className="client-content">
+                                      <img src="assets/images/quote.png" alt="" />
+                                      <p>“Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
+                                        lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
+                                    </div>
+                                    <div className="down-content">
+                                      <img src="assets/images/client-image.jpg" alt="" />
+                                      <div className="right-content">
+                                        <h4>David Martino</h4>
+                                        <span>CEO of David Company</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <div className="thumb">
+                                <div className="row">
+                                  <div className="col-lg-12">
+                                    <div className="client-content">
+                                      <img src="assets/images/quote.png" alt="" />
+                                      <p>“CTO, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
+                                        lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
+                                    </div>
+                                    <div className="down-content">
+                                      <img src="assets/images/client-image.jpg" alt="" />
+                                      <div className="right-content">
+                                        <h4>Jake H. Nyo</h4>
+                                        <span>CTO of Digital Company</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <div className="thumb">
+                                <div className="row">
+                                  <div className="col-lg-12">
+                                    <div className="client-content">
+                                      <img src="assets/images/quote.png" alt="" />
+                                      <p>“May, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
+                                        lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
+                                    </div>
+                                    <div className="down-content">
+                                      <img src="assets/images/client-image.jpg" alt="" />
+                                      <div className="right-content">
+                                        <h4>May C.</h4>
+                                        <span>Founder of Catherina Co.</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <div className="thumb">
+                                <div className="row">
+                                  <div className="col-lg-12">
+                                    <div className="client-content">
+                                      <img src="assets/images/quote.png" alt="" />
+                                      <p>“Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
+                                        lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
+                                    </div>
+                                    <div className="down-content">
+                                      <img src="assets/images/client-image.jpg" alt="" />
+                                      <div className="right-content">
+                                        <h4>Random Staff</h4>
+                                        <span>Manager, Digital Company</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div>
+                              <div className="thumb">
+                                <div className="row">
+                                  <div className="col-lg-12">
+                                    <div className="client-content">
+                                      <img src="assets/images/quote.png" alt="" />
+                                      <p>“Mark, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
+                                        lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
+                                    </div>
+                                    <div className="down-content">
+                                      <img src="assets/images/client-image.jpg" alt="" />
+                                      <div className="right-content">
+                                        <h4>Mark Am</h4>
+                                        <span>CTO, Amber Do Company</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                      </div>          
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="pricing" className="pricing-tables">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 offset-lg-2">
+                <div className="section-heading">
+                  <h4>We Have The Best Pre-Order <em>Prices</em> You Can Get</h4>
+                  <img src="assets/images/heading-line-dec.png" alt="" />
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor incididunt ut labore et dolore magna.</p>
+                </div>
+              </div>
+              <div className="col-lg-4">
+                <div className="pricing-item-regular">
+                  <span className="price">$12</span>
+                  <h4>Standard Plan App</h4>
+                  <div className="icon">
+                    <img src="assets/images/pricing-table-01.png" alt="" />
+                  </div>
+                  <ul>
+                    <li>Lorem Ipsum Dolores</li>
+                    <li>20 TB of Storage</li>
+                    <li className="non-function">Life-time Support</li>
+                    <li className="non-function">Premium Add-Ons</li>
+                    <li className="non-function">Fastest Network</li>
+                    <li className="non-function">More Options</li>
+                  </ul>
+                  <div className="border-button">
+                    <a href="#">Purchase This Plan Now</a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4">
+                <div className="pricing-item-pro">
+                  <span className="price">$25</span>
+                  <h4>Business Plan App</h4>
+                  <div className="icon">
+                    <img src="assets/images/pricing-table-01.png" alt="" />
+                  </div>
+                  <ul>
+                    <li>Lorem Ipsum Dolores</li>
+                    <li>50 TB of Storage</li>
+                    <li>Life-time Support</li>
+                    <li>Premium Add-Ons</li>
+                    <li className="non-function">Fastest Network</li>
+                    <li className="non-function">More Options</li>
+                  </ul>
+                  <div className="border-button">
+                    <a href="#">Purchase This Plan Now</a>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-4">
+                <div className="pricing-item-regular">
+                  <span className="price">$66</span>
+                  <h4>Premium Plan App</h4>
+                  <div className="icon">
+                    <img src="assets/images/pricing-table-01.png" alt="" />
+                  </div>
+                  <ul>
+                    <li>Lorem Ipsum Dolores</li>
+                    <li>120 TB of Storage</li>
+                    <li>Life-time Support</li>
+                    <li>Premium Add-Ons</li>
+                    <li>Fastest Network</li>
+                    <li>More Options</li>
+                  </ul>
+                  <div className="border-button">
+                    <a href="#">Purchase This Plan Now</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer id="newsletter">
+          <div
+              id="lean_overlay"
+              style={
+                toggleModal
+                  ? { display: "block", opacity: "0.6" }
+                  : { display: "none" }
+              }
+            />
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-8 offset-lg-2">
+                <div className="section-heading">
+                  <h4>Join our mailing list to receive the news &amp; latest trends</h4>
+                </div>
+              </div>
+              <div className="col-lg-6 offset-lg-3">
+                <form id="search" action="#" method="GET">
                   <div className="row">
-                    <div className="col-lg-6 col-6">
-                      <label htmlFor="name" className="form-label">Name <sup className="text-danger">*</sup></label>
-                      <input type="text" name="name" id="name" className="form-control" placeholder="Full name" required />
+                    <div className="col-lg-6 col-sm-6">
+                      <fieldset>
+                        <input type="address" name="address" className="email" placeholder="Email Address..." autoComplete="on" required />
+                      </fieldset>
                     </div>
-                    <div className="col-lg-6 col-6">
-                      <label htmlFor="email" className="form-label">Email <sup className="text-danger">*</sup></label>
-                      <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" className="form-control" placeholder="Email address" required />
+                    <div className="col-lg-6 col-sm-6">
+                      <fieldset>
+                        <button type="submit" className="main-button">Subscribe Now <i className="fa fa-angle-right" /></button>
+                      </fieldset>
                     </div>
-                    <div className="col-12 my-4">
-                      <label htmlFor="message" className="form-label">How can we help?</label>
-                      <textarea name="message" rows="6" className="form-control" id="message" placeholder="Tell us about the project" required></textarea>
-                    </div>
-                    <div className="col-12">
-                      <label htmlFor="services" className="form-label">Services<sup className="text-danger">*</sup></label>
-                    </div>
-                    <div className="col-lg-4 col-12">
-                      <div className="form-check">
-                        <input type="checkbox" id="checkbox1" name="checkbox1" className="form-check-input" />
-                        <label className="form-check-label" htmlFor="checkbox1">Branding</label>
-                      </div>
-                    </div>
-                    <div className="col-lg-4 col-12 my-2 my-lg-0">
-                      <div className="form-check">
-                        <input type="checkbox" id="checkbox2" name="checkbox2" className="form-check-input" />
-                        <label className="form-check-label" htmlFor="checkbox2">Digital Experiences</label>
-                      </div>
-                    </div>
-                    <div className="col-lg-4 col-12">
-                      <div className="form-check">
-                        <input type="checkbox" id="checkbox3" name="checkbox3" className="form-check-input" />
-                        <label className="form-check-label" htmlFor="checkbox3">Web Development</label>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="col-lg-5 col-12 mx-auto mt-5">
-                    <button type="submit" className="form-control">Send Message</button>
                   </div>
                 </form>
               </div>
             </div>
+            <div className="row">
+              <div className="col-lg-3">
+                <div className="footer-widget">
+                  <h4>Contact Us</h4>
+                  <p>Rio de Janeiro - RJ, 22795-008, Brazil</p>
+                  <p><a href="#">010-020-0340</a></p>
+                  <p><a href="#">info@company.co</a></p>
+                </div>
+              </div>
+              <div className="col-lg-3">
+                <div className="footer-widget">
+                  <h4>About Us</h4>
+                  <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Pricing</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Pricing</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-lg-3">
+                <div className="footer-widget">
+                  <h4>Useful Links</h4>
+                  <ul>
+                    <li><a href="#">Free Apps</a></li>
+                    <li><a href="#">App Engine</a></li>
+                    <li><a href="#">Programming</a></li>
+                    <li><a href="#">Development</a></li>
+                    <li><a href="#">App News</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="#">App Dev Team</a></li>
+                    <li><a href="#">Digital Web</a></li>
+                    <li><a href="#">Normal Apps</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div className="col-lg-3">
+                <div className="footer-widget">
+                  <h4>About Our Company</h4>
+                  <div className="logo">
+                    <img src="assets/images/white-logo.png" alt="" />
+                  </div>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+                </div>
+              </div>
+              <div className="col-lg-12">
+                <div className="copyright-text">
+                  <p>Copyright © 2022 Chain App Dev Company. All Rights Reserved.
+                    <br />Design: <a href="https://templatemo.com/" target="_blank" title="css templates">TemplateMo</a></p>
+                </div>
+              </div>
+            </div>
           </div>
-        </section>
+        </footer>
+      </div>
+    );
+  }
 
-        <section className="google-map">
-          <iframe src="https://maps.google.com/maps?q=Av.+L%C3%BAcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" className="map-iframe" width="100%" height="400" style={{ border: 0 }} allowFullScreen loading="lazy"></iframe>
-        </section>
-      </main>
-
-      <footer className="site-footer">
-        <div className="container">
-          <div className="row">
-            <div className="col-12">
-              <h5 className="text-white">
-                <i className="bi-geo-alt-fill me-2"></i>
-                State of Rio de Janeiro, Brazil
-              </h5>
-              <a href="mailto:info@company.com" className="custom-link mt-3 mb-5">
-                info@company.com
-              </a>
-            </div>
-            <div className="col-6">
-              <p className="copyright-text mb-0">Copyright © Nomad Force 2021
-                <br /><br />Design: <a href="https://templatemo.com/page/1" target="_parent">TemplateMo</a></p>
-            </div>
-            <div className="col-lg-3 col-5 ms-auto">
-              <ul className="social-icon">
-                <li><a href="#" className="social-icon-link bi-facebook"></a></li>
-                <li><a href="#" className="social-icon-link bi-twitter"></a></li>
-                <li><a href="#" className="social-icon-link bi-whatsapp"></a></li>
-                <li><a href="#" className="social-icon-link bi-instagram"></a></li>
-                <li><a href="#" className="social-icon-link bi-youtube"></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
-  );
-}
 
 export default App;
+
+
+
