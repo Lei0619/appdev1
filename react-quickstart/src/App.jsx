@@ -19,3 +19,9 @@ export default function App() {
     </div>
   );
 }
+
+export default function App() {
+  return (
+    <h1 style={{ color: 'blue', textAlign: 'center' }}>Styled Heading</h1>
+  );
+}
