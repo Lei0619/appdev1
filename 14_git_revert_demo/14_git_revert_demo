@@ -1,1 +1,2 @@
 echo "Line 1" > file.txt
+echo "Line 2" >> file.txt
