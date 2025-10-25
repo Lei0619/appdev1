@@ -2,11 +2,14 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Greeting from './components/Greeting';
 import Welcome from './components/Welcome';
+import GreetingConditional from './components/Conditional';
 
 function App() {
   return (
     <>
       <Header />
+      <GreetingConditional isLoggedIn={true} />
+      <GreetingConditional isLoggedIn={false} />
       <Greeting />
       <Welcome user="Lei" />
       <Welcome user="Alex" />
