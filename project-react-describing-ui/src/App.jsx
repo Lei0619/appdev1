@@ -4,6 +4,7 @@ import Greeting from './components/Greeting';
 import Welcome from './components/Welcome';
 import GreetingConditional from './components/Conditional';
 import UserList from './components/UserList';
+import Counter from './components/Counter';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
       <Welcome user="Alex" />
       <Welcome user="Kai" />
       <UserList />
+      <Counter count={1} />
+      <Counter count={2} />
+      <Counter count={3} />
       <p>Main content goes here.</p>
       <div>
         <h1>React with JSX</h1>
