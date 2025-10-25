@@ -6,6 +6,10 @@ function App() {
     <>
       <Header />
       <p>Main content goes here.</p>
+      <div>
+        <h1>React with JSX</h1>
+        <p>JSX lets you write HTML inside JavaScript.</p>
+      </div>
       <Footer />
     </>
   );
