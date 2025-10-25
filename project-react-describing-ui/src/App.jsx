@@ -5,6 +5,7 @@ import Welcome from './components/Welcome';
 import GreetingConditional from './components/Conditional';
 import UserList from './components/UserList';
 import Counter from './components/Counter';
+import PageStructure from './components/PagesStructure';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Counter count={1} />
       <Counter count={2} />
       <Counter count={3} />
+      <PageStructure />
       <p>Main content goes here.</p>
       <div>
         <h1>React with JSX</h1>
