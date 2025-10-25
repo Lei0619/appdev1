@@ -1,11 +1,13 @@
-import FirstComponent from "./components/FirstComponents.jsx";
-
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <div>
-      <FirstComponent />
-    </div>
+    <>
+      <Header />
+      <p>Main content goes here.</p>
+      <Footer />
+    </>
   );
 }
 
