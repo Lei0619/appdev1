@@ -9,6 +9,14 @@ export default function Avatar() {
 }
 
 export default function TodoList() {
+  const name = 'Lei Ann Judea Dico';
+  return (
+    <h1>{name}'s To Do List</h1>
+  );
+}
+
+
+export default function TodoList() {
   return (
     <div style={person.theme}>
       <h1>{person.name}'s Todos</h1>
