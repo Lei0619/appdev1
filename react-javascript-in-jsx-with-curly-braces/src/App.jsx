@@ -34,3 +34,10 @@ export default function TodoList() {
   );
 }
 
+const person = {
+  name: 'Lei Ann Judea Dico',
+  theme: {
+    backgroundColor: 'blue',
+    color: 'gray'
+  }
+};
