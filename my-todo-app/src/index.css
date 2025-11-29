@@ -1,0 +1,697 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+      monospace;
+}
+
+.github-corner:hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+
+@keyframes octocat-wave {
+  0% {
+      transform: rotate(0deg);
+  }
+
+  20% {
+      transform: rotate(-25deg);
+  }
+
+  40% {
+      transform: rotate(10deg);
+  }
+
+  60% {
+      transform: rotate(-25deg);
+  }
+
+  80% {
+      transform: rotate(10deg);
+  }
+
+  100% {
+      transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 500px) {
+  .github-corner:hover .octo-arm {
+      animation: none;
+  }
+
+  .github-corner .octo-arm {
+      animation: octocat-wave 560ms ease-in-out;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* #363532, rgb(88, 111, 112) */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Work Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* Body light or darker themes */
+.standard {
+  background-image: linear-gradient(100deg, #575656, #062e3f);
+  color: #ffdfdb;
+  transition: 0.3s linear;
+}
+
+.light {
+  background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+  color: #1a150e;
+  transition: 0.3s linear;
+}
+
+.darker {
+  background-image: linear-gradient(100deg, #001214, #001f29);
+  color: white;
+  transition: 0.3s linear;
+}
+
+#header, #form, #datetime {
+  margin: 0 1rem;
+  min-height: 10vh;
+  width: 100%;
+  /* ADDED: Ensure all sections are transparent */
+  background-color: transparent !important;
+}
+
+/* 🛑 FINAL FIX: Apply aggressive removal to the Todo Form container (#form) */
+#form {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  background: transparent !important; /* Ensure no background color is showing */
+}
+/* ----------------------------------------------------- */
+
+#header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 3rem;
+  min-height: 25vh;
+  width: 100%;
+}
+
+/* Theme buttons div */
+.flexrow-container {
+  align-items: center;
+  align-self: flex-end;
+  display: flex;
+  justify-content: space-around;
+  margin-right: 3%;
+}
+
+.theme-selector {
+  border: 1px solid #d1dae3;
+  border-radius: 100%;
+  height: 35px;
+  margin: 0 8px;
+  transition: transform 150ms ease-in-out, box-shadow 200ms ease-in-out;
+  width: 35px;
+}
+
+.theme-selector:hover {
+  box-shadow: white 0 0 8px;
+  cursor: pointer;
+}
+
+.theme-selector:active {
+  transform: scale(0.95);
+}
+
+.standard-theme {
+  background-image: linear-gradient(100deg, #575656, #062e3f);
+}
+
+.light-theme {
+  background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+}
+
+.darker-theme {
+  background-image: linear-gradient(100deg, #001214, #001f29);
+}
+
+/* Animation */
+#title {
+  border-right: solid 3px rgba(0, 0, 0, 0.75);
+  white-space: pre;
+  overflow: hidden;
+  letter-spacing: 0.20rem;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  max-width: 480px;
+}
+
+/* Animation */
+#title {
+  animation: animated-text 2s steps(11,end) 0.5s 1 normal both,
+      animated-cursor 750ms steps(11,end) infinite;
+}
+
+#title.darker-title {
+  animation: animated-text 2s steps(11,end) 0.5s 1 normal both, darker-animated-cursor 750ms steps(11,end) infinite;
+}
+
+/* text animation */
+
+@keyframes animated-text{
+  from{width: 0%;}
+  to{width: 480px;}
+}
+
+/* cursor animations */
+
+@keyframes animated-cursor{
+  from{border-right-color: rgba(0, 0, 0, 0.75);}
+  to{border-right-color: transparent;}
+}
+
+@keyframes darker-animated-cursor {
+  from{border-right-color: #01394c;}
+  to{border-right-color: transparent;}
+}
+
+form {
+  display: flex;
+  font-size: 1.7rem;
+  justify-content: center;
+  margin: 15px 0;
+  padding: 0;
+  width: 100%;
+  /* 🛑 FINAL FIX: Remove border/shadow from TodoPage form element */
+  border: none !important;
+  box-shadow: none !important;
+}
+
+form input {
+  padding: 10px;
+  font-size: 17px;
+  /* 🛑 FINAL FIX: Remove border/outline from TodoPage input */
+  border: none !important; 
+  outline: none !important; 
+  /* border-radius: 15; */
+  border-top-left-radius: 17px;
+  border-bottom-left-radius: 17px;
+  max-width: 500px;
+  transition: background-color 200ms ease-in-out;
+  width: 100%;
+}
+
+/* Input themes */
+form input.standard-input {
+  background-color: #181a1a;
+  color: rgb(247, 226, 223);
+}
+
+
+form input.light-input {
+  background-color: #AEB1B4;
+  color: #1a150e;
+}
+
+form input.light-input::placeholder {
+  color: #1a150e;
+  opacity: 0.7;
+}
+
+form input.darker-input {
+  background-color: #01394c;
+  color: white;
+}
+
+form input.darker-input::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+form input:hover {
+  cursor: text;
+}
+
+form input.standard-input:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+form input.light-input:hover {
+  background-color: #919699;
+}
+
+form input.darker-input:hover {
+  background-color: #013141;
+}
+
+button {
+  /* 🛑 FINAL FIX: Remove border/outline from generic button (including TodoPage button) */
+  border: none !important;
+  outline: none !important; 
+  transition: box-shadow 200ms ease, background-color 200ms ease-in-out;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+/* Button themes */
+button.standard-button {
+  background-color: rgb(247, 226, 223);
+  color: rgb(0, 0, 0);
+}
+
+button.standard-button:hover {
+  background-color: white;
+  box-shadow: #fff8 0 0 10px;
+}
+
+button.light-button {
+  background-color: white;
+  color: #1a150e;
+}
+
+button.light-button:hover {
+  background-color: #f0f0f0;
+}
+
+button.darker-button {
+  background-color: #002837;
+  color: white;
+}
+
+button.darker-button:hover {
+  background-color: #001f29;
+}
+
+form button {
+  padding: 10px;
+  font-size: 17px;
+  border-radius: 0;
+  min-width: 100px;
+}
+
+#myUnOrdList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.todo-list {
+  min-width: 25%;
+
+  /* To remove the bullets of unordered list */
+  list-style: none;
+}
+
+.todo {
+    margin: 1rem;
+    /* background: rgb(247, 226, 223); */
+    /* color: black; */
+    font-size: 19px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.25em 0.5em;
+    border-radius: 0;
+    transition: background-color 200ms ease-in-out;
+}
+
+/* Items themes */
+.standard-todo {
+  background-color: rgb(26, 27, 27);
+}
+
+.light-todo {
+  background-color:#AEB1B4;
+}
+
+.darker-todo {
+  background-color: #01394c;
+}
+
+.todo li{
+  padding: 7px;
+  /* word-wrap: break-word; */
+  /* flex-wrap: wrap; */
+  font-size: 20px;
+  flex: 1; /* To push the trash and the check button to the right */
+  border-radius: 30px;
+
+  /* wraps the links */
+  overflow-wrap: anywhere;
+}
+
+.check-btn, .delete-btn {
+  font-size: 19px;
+  cursor: pointer;
+  width: 2em;
+  height: 2em;
+  border-radius: 80%;
+  margin: 0 5px;
+}
+
+.todo-item {
+  padding: 0rem 0.5rem;
+}
+
+.fa-trash, .fa-check {
+  pointer-events: none;
+}
+
+
+.completed {
+  transition: 0.2s;
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.fall {
+  transition: 0.5s;
+  transform: translateY(45rem) rotateZ(45deg);
+  opacity: 0;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 1000px) {
+  .flexrow-container {
+      align-self: unset;
+      margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  #header {
+      font-size: 2rem;
+  }
+
+  #title {
+      animation:
+          animated-text 3s steps(16,end) 0.5s 1 normal both,
+          animated-cursor 750ms steps(16,end) infinite;
+      margin-bottom: 10px;
+      margin-top: 30px;
+      max-width: 330px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #header {
+      font-size: 1.5rem;
+  }
+
+  #title {
+      animation:
+          animated-text 3.5s steps(16,end) 0.5s 1 normal both,
+          animated-cursor 750ms steps(16,end) infinite;
+      max-width: 255px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  form {
+      align-items: center;
+      flex-direction: column;
+  }
+
+  form input {
+      border-radius: 17px;
+  }
+
+  form button {
+      border-radius: 15px;
+      margin-top: 15px;
+      width: 50%;
+  }
+  form > button.light-button {
+      box-shadow: 0 0 5px lightgray;
+  }
+}
+
+/* Homepage styles */
+.homepage {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Work Sans', sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+}
+
+.standard .homepage {
+  color: #ffdfdb;
+}
+
+.light .homepage {
+  color: #1a150e;
+}
+
+.darker .homepage {
+  color: white;
+}
+
+.homepage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.standard .homepage::before {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,223,219,0.1)"/></svg>') repeat;
+}
+
+.light .homepage::before {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(26,21,14,0.1)"/></svg>') repeat;
+}
+
+.darker .homepage::before {
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+}
+
+.homepage-content {
+  text-align: center;
+  max-width: 600px;
+  padding: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+.homepage-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.homepage-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.homepage-btn {
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.standard .homepage-btn {
+  background: rgba(247, 226, 223, 0.2);
+  color: #ffdfdb;
+}
+
+.light .homepage-btn {
+  background: rgba(174, 177, 180, 0.5);
+  color: #1a150e;
+}
+
+.darker .homepage-btn {
+  background: rgba(0, 47, 41, 0.2);
+  color: white;
+}
+
+.homepage-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Login styles */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.standard .login-container {
+  background: linear-gradient(135deg, #575656 0%, #062e3f 100%);
+}
+
+.light .login-container {
+  background: linear-gradient(135deg, #d4f1ff 0%, #ffffff 100%);
+}
+
+.darker .login-container {
+  background: linear-gradient(135deg, #001214 0%, #001f29 100%);
+}
+
+.login-form {
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 40px;
+  
+  /* 🛑 FINAL FIX: Remove border/shadow from Login Form */
+  border: none !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Keeping the desired box shadow for the glassy effect */
+  background-color: transparent !important; /* Ensure no background color is showing */
+  
+  max-width: 400px;
+  width: 100%;
+}
+
+.standard .login-form {
+  background: rgba(247, 226, 223, 0.1);
+}
+
+.light .login-form {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.darker .login-form {
+  background: rgba(0, 47, 41, 0.1);
+}
+
+.login-field {
+  margin-bottom: 20px;
+}
+
+.login-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.standard .login-label {
+  color: #ffdfdb;
+}
+
+.light .login-label {
+  color: #1a150e;
+}
+
+.darker .login-label {
+  color: white;
+}
+
+.login-input {
+  width: 100%;
+  padding: 12px;
+  /* 🛑 FINAL FIX: Ensure no border/outline on Login input */
+  border: none !important; 
+  outline: none !important;
+  
+  border-radius: 8px;
+  font-size: 16px;
+  
+  transition: background 0.3s ease;
+}
+
+.standard .login-input {
+  background: rgba(247, 226, 223, 0.2);
+  color: #ffdfdb;
+}
+
+.light .login-input {
+  background: rgba(174, 177, 180, 0.5);
+  color: #1a150e;
+}
+
+.darker .login-input {
+  background: rgba(1, 57, 76, 0.5);
+  color: white;
+}
+
+.login-input::placeholder {
+  opacity: 0.7;
+}
+
+.standard .login-input::placeholder {
+  color: #ffdfdb;
+}
+
+.light .login-input::placeholder {
+  color: #1a150e;
+}
+
+.darker .login-input::placeholder {
+  color: white;
+}
+
+.login-input:focus {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.login-button {
+  width: 100%;
+  padding: 12px;
+  /* 🛑 FINAL FIX: Ensure no border/outline on Login button */
+  border: none !important;
+  outline: none !important;
+  
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.standard .login-button {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: white;
+}
+
+.light .login-button {
+  background: linear-gradient(135deg, #28a745, #20c997);
+  color: white;
+}
+
+.darker .login-button {
+  background: linear-gradient(135deg, #002837, #001f29);
+  color: white;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
